@@ -74,7 +74,7 @@ namespace AutoService.PageClients
                 var clientTags = AppConnect.modelOdb.ClientTag.Where(a => a.IdClient == client.IdClient).ToString();
                 foreach(var item in clientTags)
                 {
-                    tag.Add(AppConnect.)
+                    //tag.Add(AppConnect.)
                 }
             }
 

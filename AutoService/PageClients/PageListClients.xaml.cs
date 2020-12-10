@@ -64,6 +64,21 @@ namespace AutoService.PageClients
                 {
                     FilterFio = FilterFio.Where(x => x.BirhDate.Date.Month == DateTime.Now.Month).ToList();
                 }
+                if (ComboSort != null)
+                {
+                    switch(ComboSort.SelectedIndex)
+                    {
+                        case 0:
+                            FilterFio = FilterFio.Where (x =>x.FIO.)
+                            break;
+                        case 1:
+
+                            break;
+                        case 2:
+
+                            break;
+                    }
+                }
                 lvClients.ItemsSource = FilterFio;
             }
         }
@@ -147,5 +162,9 @@ namespace AutoService.PageClients
             AppFrame.SelectedFrame.Navigate(new PageEditClient());
         }
 
+        private void ComboSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
     }
 }

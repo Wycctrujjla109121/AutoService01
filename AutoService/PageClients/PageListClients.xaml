@@ -62,7 +62,7 @@
                 <TextBlock Text="Сортировка:" 
                            VerticalAlignment="Center" 
                            Margin="15,0,15,0"/>
-                <ComboBox x:Name="ComboSort" Height="30" Width="220" HorizontalAlignment="Left">
+                <ComboBox x:Name="ComboSort" SelectionChanged="ComboSort_SelectionChanged" Height="30" Width="220" HorizontalAlignment="Left">
                     <ComboBoxItem Content="По алфавиту"/>
                     <ComboBoxItem Content="По количеству посещений"/>
                     <ComboBoxItem Content="По дате последнего посещения"/>

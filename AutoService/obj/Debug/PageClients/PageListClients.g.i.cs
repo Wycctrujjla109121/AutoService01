@@ -208,6 +208,12 @@ namespace AutoService.PageClients {
             return;
             case 5:
             this.ComboSort = ((System.Windows.Controls.ComboBox)(target));
+            
+            #line 65 "..\..\..\PageClients\PageListClients.xaml"
+            this.ComboSort.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.ComboSort_SelectionChanged);
+            
+            #line default
+            #line hidden
             return;
             case 6:
             this.lvClients = ((System.Windows.Controls.ListView)(target));

@@ -1,0 +1,183 @@
+﻿<Page x:Class="AutoService.PageClients.PageEditClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AutoService.PageClients"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1010"
+      Title="Добавление/Редактирование клиента">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*" />
+            <ColumnDefinition Width="450*" />
+            <ColumnDefinition Width="300*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="350*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="175*"/>
+                    <ColumnDefinition Width="175*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="ID:" Grid.Row="0" Grid.Column="0"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"/>
+                <TextBlock Text="Фамилия:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                <TextBlock Text="Имя:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
+                <TextBlock Text="Отчество:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="3"
+                           Grid.Column="0"/>
+                <TextBlock Text="Email:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                <TextBlock Text="Телефон:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="5"
+                           Grid.Column="0"/>
+                <TextBlock Text="Дата рождения:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="6"
+                           Grid.Column="0"/>
+                <TextBlock Text="Пол:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,5,0"
+                           Grid.Row="7"
+                           Grid.Column="0"/>
+
+                <TextBox Name="TbID" 
+                       Style="{StaticResource  TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="0"/>
+
+                <TextBox Name="TbLastName" 
+                       Style="{StaticResource TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         TextChanged="TbLastName_TextChanged"/>
+                <TextBox Name="TbFirstName"
+                       Style="{StaticResource TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         TextChanged="TbFirstName_TextChanged"/>
+                <TextBox Name="TbMiddleName" 
+                       Style="{StaticResource TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         TextChanged="TbMiddleName_TextChanged"/>
+                <TextBox Name="TbEmail" 
+                       Style="{StaticResource TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="4"
+                         LostFocus="TbEmail_LostFocus"/>
+                <TextBox Name="TbPhone"
+                       Style="{StaticResource TxSearchStyle}"
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="5"
+                         TextChanged="TbPhone_TextChanged"/>
+                <DatePicker Name="TbDateBirth"  
+                       Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="6"/>
+                <ComboBox Name="CbGender" 
+                       Style="{StaticResource CbDefaultStyle}"
+                       Width="100" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Grid.Column="1"
+                         Grid.Row="7">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2"
+                    Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="ImageClient" 
+                   Width="150" Height="150"
+                   VerticalAlignment="Center"
+                   Stretch="Fill"/>
+            <Button x:Name="EditPhoto" 
+                    Margin="0,10,0,0" Height="30"
+                    Content="Изменить"
+                    Style="{StaticResource DefautStyle}" 
+                    Click="EditPhoto_Click"/>
+        </StackPanel>
+        <Button x:Name="BtnEditClient" 
+                Grid.Column="0" Grid.Row="8" 
+                Margin="5" 
+                Height="30" Width="100" 
+                Content="Сохранить" HorizontalAlignment="Right"
+                Style="{StaticResource DefautStyle}"
+                Click="BtnEditClient_Click"/>
+        <Button x:Name="BtnCancle" 
+                Grid.Column="0" Grid.Row="8" 
+                Margin="5" 
+                Height="30" Width="100" 
+                Content="Отменить" HorizontalAlignment="Left"
+                Style="{StaticResource DefautStyle}"
+                Click="BtnCancle_Click"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="300*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Row="1">
+                
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>

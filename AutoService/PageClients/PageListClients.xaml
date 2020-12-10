@@ -1,0 +1,152 @@
+﻿<Page x:Class="AutoService.PageClients.PageListClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AutoService.PageClients"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="960"
+      Title="Список клиентов">
+
+    <!--Страница отображения списка клиентов Background="White" -->
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <CheckBox x:Name="CheckDateBird" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"
+                      Content="Люди у которых день рождения в этом месяце" Margin="5,0,5,0" 
+                      Checked="CheckDateBird_Checked"
+                      Unchecked="CheckDateBird_Unchecked"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Количество записей на странице: "
+                           VerticalAlignment="Center"
+                           Margin="5,0,5,0"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <ComboBox x:Name="ListColBox" Margin="5,0,0,0"
+                          Width="200" Height="30"
+                          Style="{StaticResource CbDefaultStyle}" >
+                    <ComboBoxItem Content="10 записей"/>
+                    <ComboBoxItem Content="50 записей"/>
+                    <ComboBoxItem Content="200 записей"/>
+                    <ComboBoxItem Content="Все"/>
+                </ComboBox>
+
+                <TextBlock Text="Выберите пол:" 
+                           VerticalAlignment="Center" 
+                           Margin="5,0,5,0"/>
+                <ComboBox x:Name="ListGenderBox" Width="200" Height="30" SelectionChanged="ListGenderBox_SelectionChanged">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
+                    <ComboBoxItem Content="Все"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" >
+                <TextBox x:Name="TbSearch"
+                     VerticalAlignment="Center"
+                     Height="30" Width="450" 
+                     VerticalContentAlignment="Center"
+                     Margin="5,0,0,0" 
+                     Text="Поиск по ФИО"
+                         GotFocus="TbSearch_GotFocus"
+                         LostFocus="TbSearch_LostFocus"
+                         Style="{StaticResource TxSearchStyle}" TextChanged="TbSearch_TextChanged" />
+                <TextBlock Text="Сортировка:" 
+                           VerticalAlignment="Center" 
+                           Margin="15,0,15,0"/>
+                <ComboBox x:Name="ComboSort" Height="30" Width="220" HorizontalAlignment="Left">
+                    <ComboBoxItem Content="По алфавиту"/>
+                    <ComboBoxItem Content="По количеству посещений"/>
+                    <ComboBoxItem Content="По дате последнего посещения"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <ListView x:Name="lvClients" 
+                  Grid.Row="1"
+                  MouseDoubleClick="lvClients_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="id"
+                                    DisplayMemberBinding="{Binding IdClient}"/>
+                    <GridViewColumn Header="Имя"
+                                    DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Фамилия"
+                                    DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Отчество"
+                                    DisplayMemberBinding="{Binding MiddleName}"/>
+                    <GridViewColumn Header="Телефон"
+                                    DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Email"
+                                    DisplayMemberBinding="{Binding Emall}"/>
+                    <GridViewColumn Header="Дата рождение"
+                                    DisplayMemberBinding="{Binding BirhDate,
+                        StringFormat='{}{0:yyyy-M-d}'}"/>
+                    <GridViewColumn Header="Дата регистрации"
+                                    DisplayMemberBinding="{Binding RegDate,
+                        StringFormat='{}{0:yyyy-M-d}'}"/>
+                    <GridViewColumn Header="Количество посещений"
+                                    DisplayMemberBinding="{Binding AmountVisit}"/>
+                    <GridViewColumn Header="Количество тегов"
+                                    DisplayMemberBinding="{Binding IdTag.Count}"/>
+                    <GridViewColumn Header="Пол"
+                                    DisplayMemberBinding="{Binding IdGender}"/>
+                    <GridViewColumn Header="Дата последнего посещения"
+                                    DisplayMemberBinding="{Binding LastVisit,
+                        StringFormat='{}{0:yyyy-M-d}'}"/>
+                    
+                    <GridViewColumn Header="Теги">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                
+                                <ItemsControl ItemsSource="{Binding Tag}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BackData" 
+                    Width="130"
+                    Margin="0,5,0,5"
+                    Content="Предыдущая страница"
+                    Style="{StaticResource DefautStyle}"/>
+            <TextBlock x:Name="TbColData"
+                       Width="100" 
+                       Margin="15,0,0,0"
+                       Style="{StaticResource TxbDefaultStyle}"/>
+            <Button x:Name="NextData" 
+                    Width="130"
+                    Margin="5,5,5,5"
+                    Content="Следующая страница"
+                    Style="{StaticResource DefautStyle}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Width="400" Orientation="Vertical" HorizontalAlignment="Left">
+            <Button x:Name="BtnDelete" Content="Удалить" 
+                    Width="100" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,0,0,5"
+                    Style="{StaticResource DefautStyle}"/>
+            <Button x:Name="BtnAdd" Content="Добавить" Click="BtnAdd_Click" 
+                    Width="100" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,5,0,5"
+                    Style="{StaticResource DefautStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

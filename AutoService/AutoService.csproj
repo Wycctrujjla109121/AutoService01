@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C26A32AE-A8BE-4314-A1F1-5FD9888A672A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AutoService</RootNamespace>
+    <AssemblyName>AutoService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ClientClass1.cs" />
+    <Compile Include="PageClients\PageEditClient.xaml.cs">
+      <DependentUpon>PageEditClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageClients\PageListClients.xaml.cs">
+      <DependentUpon>PageListClients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAppClass\AppFrame.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ApplicationData\AppConnect.cs" />
+    <Compile Include="ApplicationData\AutoService.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoService.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\AutoService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\AutoService.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoService.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\BonusCard.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\CategoryEmployee.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Client.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ClientPhoto.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ClientService.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ClientServiceDocument.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ClientTag.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Employee.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\EmpService.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Gender.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\InnerCategory.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Manufacturer.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Product.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ProductCategory.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ProductHistory.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ProductOnWareHouse.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ProductParent.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\ProductPhoto.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Season.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Service.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\Tag.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationData\WareHouse.cs">
+      <DependentUpon>AutoService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PageClients\PageEditClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageClients\PageListClients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="ApplicationData\AutoService.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoService.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ApplicationData\AutoService.edmx.diagram">
+      <DependentUpon>AutoService.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationData\AutoService.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AutoService.Context.cs</LastGenOutput>
+      <DependentUpon>AutoService.edmx</DependentUpon>
+    </Content>
+    <Content Include="ApplicationData\AutoService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoService.edmx</DependentUpon>
+      <LastGenOutput>AutoService.cs</LastGenOutput>
+    </Content>
+    <Resource Include="ImageRes\ButtonLeft.png" />
+    <Resource Include="ImageRes\ButtonRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageRes\service_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
